@@ -5,16 +5,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start": "next start -p $PORT",
+		"heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "dotenv": "^16.0.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
     "next": "12.1.0",
+    "nprogress": "^0.2.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sass": "^1.49.9"
   },
   "devDependencies": {
     "@types/node": "17.0.21",
+    "@types/nprogress": "^0.2.0",
     "@types/react": "17.0.41",
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0",
