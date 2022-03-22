@@ -1,6 +1,6 @@
 import React from 'react'
 import { Icities } from '../../components/SearchBox'
-import cityJSON from '../../lib/city.list.json'
+import cityJSON from '../../public/data/city.list.json'
 import Head from 'next/head'
 import moment from 'moment-timezone';
 import TodaysWeather from '../../components/TodaysWeather';

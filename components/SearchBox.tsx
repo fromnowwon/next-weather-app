@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import cityJSON from '../lib/city.list.json'
+import cityJSON from '../public/data/city.list.json'
 import { useEffect } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
