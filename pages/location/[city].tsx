@@ -12,13 +12,11 @@ import Link from 'next/link';
 export default function City({ 
 	hourlyWeather, 
 	weeklyWeather, 
-	currentWeather, 
-	city ,
+	city,
 	timezone
 }: {
 	hourlyWeather: any[], 
 	weeklyWeather: any[], 
-	currentWeather: any, 
 	city: Icities,
 	timezone: string
 }) {
