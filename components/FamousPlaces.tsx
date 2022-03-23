@@ -9,24 +9,24 @@ import NewYorkImage from '../public/images/new-york.jpg';
 
 const places = [
 	{
-		name: "London",
+		name: "런던",
 		image: LondonImage,
-		url: "/location/london-2643743",
+		url: "/location/london",
 	},
 	{
-		name: "Paris",
+		name: "파리",
 		image: ParisImage,
-		url: "/location/paris-2968815",
+		url: "/location/paris",
 	},
 	{
-		name: "Tokyo",
+		name: "도쿄",
 		image: TokyoImage,
-		url: "/location/tokyo-1850147",
+		url: "/location/tokyo",
 	},
 	{
-		name: "NewYork",
+		name: "뉴욕",
 		image: NewYorkImage,
-		url: "/location/new-york-city-5128581",
+		url: "/location/new-york-city",
 	},
 ]
 

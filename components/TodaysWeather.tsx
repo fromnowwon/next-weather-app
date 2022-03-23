@@ -37,10 +37,10 @@ export default function TodaysWeather({ city, weather, timezone }: {city: Icitie
 								layout="fill"
 							/>
 						</div>
-						<h3>
-							{weather.weather[0].description}
-						</h3>
 					</div>
+					<h3>
+						{weather.weather[0].description}
+					</h3>
 				</div>
 			</div>	
 		</div>

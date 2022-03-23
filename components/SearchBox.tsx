@@ -19,7 +19,6 @@ export interface Icities {
 const SearchBox = ({ placeholder }: { placeholder: string }) => {
 	const [query, setQuery] = useState("");
 	const [cities, setCities] = useState<Icities[]>([]);
-	// const [results, setResults] = useState<Icities[]>([]);
 
 	useEffect(() => {
 		// 검색창 리셋
@@ -46,27 +45,6 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 					setCities([]);
 				}
 			})
-
-		// if (value.length > 0) {
-		// 	console.log(cities);
-		// 	for(let city of cities) {
-		// 		if(matchingCities.length > 5) {
-		// 			break;
-		// 		}
-
-		// 		// true / false
-		// 		const match = city.name.toLowerCase().startsWith(value.toLowerCase());
-				
-		// 		if (match) {
-		// 			// 각 city unique slug 추가
-		// 			const cityData = {
-		// 				...city, 
-		// 				slug: `${city.name.toLowerCase().replace(/ /g, "-")}-${city.id}`
-		// 			}
-		// 			matchingCities.push(cityData);
-		// 		}
-		// 	}
-		// }
 	}
 
 	return (
@@ -90,21 +68,6 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 					) : (
 						<li className="search__no-results">No results found!</li>
 					)}
-					{/* {results.length > 0 ? (
-						results.map((city) => (
-							<li key={city.slug}>
-								<Link href={`/location/${city.slug}`}>
-									<a>
-										{city.name}
-										{city.state ? `, ${city.state}` : ' '}
-										<span>({city.country})</span>
-									</a>
-								</Link>
-							</li>
-						))
-					) : (
-						<li className="search__no-results">No results found!</li>
-					)} */}
 				</ul>
 			)}
 		</div>
