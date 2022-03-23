@@ -42,25 +42,17 @@ export default function City({
 }
 
 const getCity = (param: string) => {
-	let jsonString = JSON.parse(JSON.stringify(cityJSON));
-
 	// 공백 제거
-	const cityParam = param.trim();
+	// const cityParam = param.trim();
 	// City id 추출
-	const splitCity = cityParam.split("-");
-	const id = splitCity[splitCity.length -1];
+	// const splitCity = cityParam.split("-");
+	// const id = splitCity[splitCity.length -1];
 
-	if (!id) {
-		return null;
-	}
+	// if (!id) {
+	// 	return null;
+	// }
 
-	const city = jsonString.find((city: { id: string }) => city.id.toString() === id);
-
-	if(city) {
-		return city;
-	} else {
-		return null;
-	}
+	// const city = jsonString.find((city: { id: string }) => city.id.toString() === id);
 }
 
 const getHourlyWeather = (hourlyData: any[], timezone: string) => {
@@ -81,9 +73,13 @@ const getHourlyWeather = (hourlyData: any[], timezone: string) => {
 	return todaysData;
 }
 
+
 export const getServerSideProps = async(context: any) => {
-	const city = getCity(context.params.city);
-	// const slug = context.params.city;
+	const geo = await fetch(
+		`http://api.openweathermap.org/geo/1.0/direct?q=${context.params.city}&appid=${process.env.API_KEY}`
+	)
+	
+	const [ city ] = await geo.json()
 
 	if(!city) {
 		return {
@@ -92,7 +88,8 @@ export const getServerSideProps = async(context: any) => {
 	}
 
 	const res = await fetch(
-		`https://api.openweathermap.org/data/2.5/onecall?lat=${city.coord.lat}&lon=${city.coord.lon}&appid=${process.env.API_KEY}&units=metric&exclude=minutely`
+		// `https://api.openweathermap.org/data/2.5/onecall?lat=37.5666791&lon=126.9782914&appid=${process.env.API_KEY}&units=metric&exclude=minutely`
+		`https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&appid=${process.env.API_KEY}&units=metric&exclude=minutely`
 	)
 	
 	const data = await res.json();
