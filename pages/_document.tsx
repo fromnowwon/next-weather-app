@@ -1,11 +1,10 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript } from 'next/document'
 
-class MyDocument extends Document {
-  render() {
-    return (
+export default function Document() {
+  return (
 		<Html>
 			<Head>
-				{/* <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta> */}
+				<meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 				{/* Font */}
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link
@@ -23,8 +22,5 @@ class MyDocument extends Document {
 				<NextScript />
 			</body>
 		</Html>
-	);
-  }
+  );
 }
-
-export default MyDocument;
