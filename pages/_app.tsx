@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app'
-import "../styles/main.scss"
 import { useEffect } from 'react';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import "../styles/main.scss"
 
 function MyApp({ Component, pageProps }: AppProps) {
 	useEffect(() => {

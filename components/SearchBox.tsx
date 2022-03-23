@@ -34,7 +34,6 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value } = e.target;
 		setQuery(value);
-		console.log(value);
 
 		fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=${process.env.NEXT_PUBLIC_API_KEY}`)
 			.then(res => res.json())

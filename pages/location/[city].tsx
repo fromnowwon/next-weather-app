@@ -1,6 +1,5 @@
 import React from 'react'
 import { Icities } from '../../components/SearchBox'
-import cityJSON from '../../public/data/city.list.json'
 import Head from 'next/head'
 import moment from 'moment-timezone';
 import TodaysWeather from '../../components/TodaysWeather';
@@ -41,20 +40,6 @@ export default function City({
 	)
 }
 
-const getCity = (param: string) => {
-	// 공백 제거
-	// const cityParam = param.trim();
-	// City id 추출
-	// const splitCity = cityParam.split("-");
-	// const id = splitCity[splitCity.length -1];
-
-	// if (!id) {
-	// 	return null;
-	// }
-
-	// const city = jsonString.find((city: { id: string }) => city.id.toString() === id);
-}
-
 const getHourlyWeather = (hourlyData: any[], timezone: string) => {
 	// const current = new Date();
 	// current.setHours(current.getHours(), 0, 0, 0);
@@ -73,7 +58,6 @@ const getHourlyWeather = (hourlyData: any[], timezone: string) => {
 	return todaysData;
 }
 
-
 export const getServerSideProps = async(context: any) => {
 	const geo = await fetch(
 		`http://api.openweathermap.org/geo/1.0/direct?q=${context.params.city}&appid=${process.env.API_KEY}`
@@ -88,7 +72,6 @@ export const getServerSideProps = async(context: any) => {
 	}
 
 	const res = await fetch(
-		// `https://api.openweathermap.org/data/2.5/onecall?lat=37.5666791&lon=126.9782914&appid=${process.env.API_KEY}&units=metric&exclude=minutely`
 		`https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&appid=${process.env.API_KEY}&units=metric&exclude=minutely`
 	)
 	
