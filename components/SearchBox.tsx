@@ -32,27 +32,20 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 		}
 	}, [])
 
-	// useEffect(() => {
-	// 	let jsonString = JSON.parse(JSON.stringify(cityJSON));
-	// 	setCities(jsonString);
-	// }, []);
-
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value } = e.target;
 		setQuery(value);
 		console.log(value);
 
-
 		fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=${process.env.NEXT_PUBLIC_API_KEY}`)
-		.then(res => res.json())
-		.then(data => {
-			if(!data.errors) {
-				setCities(data);
-				console.log(data);
-			} else {
-				setCities([]);
-			}
-		})
+			.then(res => res.json())
+			.then(data => {
+				if(!data.errors) {
+					setCities(data);
+				} else {
+					setCities([]);
+				}
+			})
 
 		// if (value.length > 0) {
 		// 	console.log(cities);
