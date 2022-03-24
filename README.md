@@ -1,8 +1,8 @@
-# Movie search App
+# Next Weather App
 
 📎 [Demo](https://nemo-next-weather-app.herokuapp.com/)
 
-![](./public/images/next-weather-app.gif)
+![](./public/images/next-weather-app-16_9.gif)
 
 <br/>
 

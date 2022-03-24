@@ -1,7 +1,6 @@
 import React from 'react'
 import moment from 'moment-timezone';
 import Image from 'next/image';
-import { Icities } from './SearchBox';
 
 export default function HourlyWeather({ hourlyWeather, timezone }: { hourlyWeather: any, timezone: string}) {
 	return (
