@@ -6,6 +6,9 @@ import Router from 'next/router';
 
 export interface Icities {
 	id: number
+	local_names: {
+		ko: string
+	}
 	name: string
 	country: string
 	state: string
@@ -40,6 +43,7 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 			.then(data => {
 				if(!data.errors) {
 					setCities(data);
+					console.log(data)
 				} else {
 					setCities([]);
 				}
@@ -48,7 +52,12 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 
 	return (
 		<div className="search">
-			<input type="text" value={query} onChange={onChange} placeholder={placeholder ? placeholder : ""}/>
+			<input 
+				type="text" 
+				value={query} 
+				onChange={onChange} 
+				placeholder={placeholder ? placeholder : ""}
+			/>
 
 			{query.length > 0 && (
 				<ul>
@@ -57,7 +66,12 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 							<li key={city.slug}>
 								<Link href={`/location/${city.name.toLowerCase()}`}>
 									<a>
-										{city.name}
+										{/* {city.name} */}
+										{
+											city.local_names
+											? city.local_names.ko
+											: city.name
+										}
 										{city.state ? `, ${city.state}` : ' '}
 										<span> ({city.country})</span>
 									</a>
