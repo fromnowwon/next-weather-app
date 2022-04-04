@@ -6,15 +6,15 @@ import Router from 'next/router';
 
 export interface Icities {
 	id: number
-	local_names: {
-		ko: string
-	}
 	name: string
 	country: string
 	state: string
 	coord: {
 		lat: number
 		lon: number
+	}
+	local_names: {
+		ko: string
 	}
 	slug: string
 }
@@ -38,7 +38,8 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 		const { value } = e.target;
 		setQuery(value);
 
-		fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=${process.env.NEXT_PUBLIC_API_KEY}`)
+		if (value.length > 1) {
+			fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${process.env.NEXT_PUBLIC_API_KEY}`)
 			.then(res => res.json())
 			.then(data => {
 				if(!data.errors) {
@@ -47,6 +48,7 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 					setCities([]);
 				}
 			})
+		}
 	}
 
 	return (
@@ -58,23 +60,31 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 				placeholder={placeholder ? placeholder : ""}
 			/>
 
-			{query.length > 0 && (
+			{query.length > 1 && (
 				<ul>
-					{cities.length > 0 ? (
-						cities.map((city) => (
-							<li key={city.slug}>
-								<Link href={`/location/${city.name.toLowerCase()}`}>
-									<a>
-										{city.name}
-										{city.state ? `, ${city.state}` : ' '}
-										<span> ({city.country})</span>
-									</a>
-								</Link>
-							</li>
-						))
-					) : (
-						<li className="search__no-results">검색 결과가 존재하지 않습니다.</li>
-					)}
+					{
+						cities.length > 0 
+							? (
+								cities.map((city) => (
+									<li key={city.slug}>
+										<Link href={`/location/${city.name.toLowerCase()}`}>
+											<a>
+												{
+													city.local_names
+													? city.local_names.ko
+														? city.local_names.ko
+														: city.name
+													: city.name
+												}
+												{city.state ? `, ${city.state}` : ' '}
+												<span> ({city.country})</span>
+											</a>
+										</Link>
+									</li>
+								))
+							) 
+							: (<li className="search__no-results">검색 결과가 존재하지 않습니다.</li>)
+					}
 				</ul>
 			)}
 		</div>

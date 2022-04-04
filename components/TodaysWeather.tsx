@@ -9,7 +9,13 @@ export default function TodaysWeather({ city, weather, timezone }: {city: Icitie
 			<div className="today__inner">
 				<div className="today__left-content">
 					<h1>
-						{city.name} ({city.country})
+						{
+							city.local_names
+							? city.local_names.ko
+								? city.local_names.ko
+								: city.name
+							: city.name
+						} ({city.country})
 					</h1>
 					<h2>
 						<span>{weather.temp.max.toFixed(0)}&deg;C</span>
