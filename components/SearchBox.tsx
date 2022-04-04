@@ -43,7 +43,6 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 			.then(data => {
 				if(!data.errors) {
 					setCities(data);
-					console.log(data)
 				} else {
 					setCities([]);
 				}
