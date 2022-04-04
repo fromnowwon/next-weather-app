@@ -32,30 +32,27 @@
 ## Tree
 ```
 next-weather-app
-├── components
-│   ├── FamousPlaces.tsx (첫 화면 검색창 아래 4개 도시)
-│   ├── Header.tsx (첫 화면 헤더)
-│   ├── HourlyWeather.tsx (시간별 날씨)
+├── pages (라우팅 기능 담당)
+│   ├── _app.tsx (Application Container. 글로벌 CSS & 공통 레이아웃 등을 적용하는 곳)
+│   ├── _document.tsx (SPA에서 시작점이 되는 index.html <head>태그 내용 등을 작성)
+│   ├── index.tsx (Root Page. /로 시작되는 경로를 말한다.)
+│   └── location (다이나믹 라우터)
+│       └── [city].tsx
+├── public (정적 자원의 root 디렉토리)
+│   └── images
+├── components (컴포넌트 파일 보관)
+│   ├── FamousPlaces.tsx (인기 검색 장소)
+│   ├── Header.tsx (헤더)
 │   ├── SearchBox.tsx (검색창)
-│   ├── TodaysWeather.tsx (오늘 날씨)
+│   ├── HourlyWeather.tsx (시간별 날씨)
+│   ├── TodaysWeather.tsx (오늘의 날씨)
 │   └── WeeklyWeather.tsx (주간 날씨)
+├── styles (정적 자원 중 CSS 파일을 별도 보관)
+│   └── main.scss
+├── README.md
+├── next-env.d.ts
+├── next.config.js
 ├── package-lock.json
 ├── package.json
-├── pages
-│   ├── _app.tsx
-│   ├── _document.tsx
-│   ├── index.tsx
-│   └── location
-│       └── [city].tsx (검색 결과 페이지)
-├── public
-│   ├── images
-│   │   ├── london.jpg
-│   │   ├── new-york.jpg
-│   │   ├── paris.jpg
-│   │   └── tokyo.jpg
-│   └── vercel.svg
-├── styles
-│   └── main.scss
 └── tsconfig.json
-
 ```

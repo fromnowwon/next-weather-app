@@ -18,11 +18,11 @@ export default function TodaysWeather({ city, weather, timezone }: {city: Icitie
 
 					<div className="today__sun-times">
 						<div>
-							<span>Sunrise</span>
+							<span>일출</span>
 							<span>{moment.unix(weather.sunrise).tz(timezone).format("LT")}</span>
 						</div>
 						<div>
-							<span>Sunset</span>
+							<span>일몰</span>
 							<span>{moment.unix(weather.sunset).tz(timezone).format("LT")}</span>
 						</div>
 					</div>

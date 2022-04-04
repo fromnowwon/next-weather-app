@@ -2,12 +2,18 @@ import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 
+import SeoulImage from '../public/images/seoul.jpg';
 import LondonImage from '../public/images/london.jpg';
 import ParisImage from '../public/images/paris.jpg';
 import TokyoImage from '../public/images/tokyo.jpg';
 import NewYorkImage from '../public/images/new-york.jpg';
 
 const places = [
+	{
+		name: "서울",
+		image: SeoulImage,
+		url: "/location/seoul",
+	},
 	{
 		name: "런던",
 		image: LondonImage,

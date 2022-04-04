@@ -65,7 +65,7 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 							</li>
 						))
 					) : (
-						<li className="search__no-results">No results found!</li>
+						<li className="search__no-results">검색 결과가 존재하지 않습니다.</li>
 					)}
 				</ul>
 			)}

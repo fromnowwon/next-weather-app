@@ -6,7 +6,7 @@ export default function WeeklyWeather({ weeklyWeather, timezone } : { weeklyWeat
 	return (
 		<div className="weekly">
 			<h3 className="weekly__title">
-				Weekly <span>Weather</span>
+				주간 날씨
 			</h3>
 
 			{
@@ -37,13 +37,13 @@ export default function WeeklyWeather({ weeklyWeather, timezone } : { weeklyWeat
 
 									<div className="weekly__sun-times">
 										<div>
-											<span>Sunrise</span>
+											<span>일출</span>
 											<span>
 												{moment.unix(weather.sunrise).tz(timezone).format("LT")}
 											</span>
 										</div>
 										<div>
-											<span>Sunset</span>
+											<span>일몰</span>
 											<span>
 												{moment.unix(weather.sunset).tz(timezone).format("LT")}
 											</span>

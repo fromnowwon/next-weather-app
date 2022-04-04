@@ -30,7 +30,7 @@ export default function City({
 					<Link href="/">
 						<a className="back-link">&larr; Home</a>
 					</Link>
-					<SearchBox placeholder={`Search for another location...`} />
+					<SearchBox placeholder={`도시명을 입력하세요.`} />
 					<TodaysWeather city={city} weather={weeklyWeather[0]} timezone={timezone}/>
 					<HourlyWeather hourlyWeather={hourlyWeather} timezone={timezone} />
 					<WeeklyWeather weeklyWeather={weeklyWeather} timezone={timezone} />
@@ -72,7 +72,7 @@ export const getServerSideProps = async(context: any) => {
 	}
 
 	const res = await fetch(
-		`https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&appid=${process.env.API_KEY}&units=metric&exclude=minutely`
+		`https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&appid=${process.env.API_KEY}&units=metric&exclude=minutely&lang=kr`
 	)
 	
 	const data = await res.json();

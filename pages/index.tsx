@@ -8,13 +8,13 @@ const Home: NextPage = () => {
 	return (
 		<div>
 			<Head>
-				<title>Weather App - Next</title>
+				<title>Weather App | 전세계 실시간 날씨 검색 - Next</title>
 			</Head>
 
 			<div className="home">
 				<Header />
 				<div className="container">
-					<SearchBox placeholder='Search for a city...'/>
+					<SearchBox placeholder='도시명을 입력해주세요. (ex. 서울, New york ...)'/>
 					<FamousPlaces />
 				</div>
 			</div>
