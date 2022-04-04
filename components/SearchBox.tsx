@@ -65,12 +65,7 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 							<li key={city.slug}>
 								<Link href={`/location/${city.name.toLowerCase()}`}>
 									<a>
-										{/* {city.name} */}
-										{
-											city.local_names
-											? city.local_names.ko
-											: city.name
-										}
+										{city.name}
 										{city.state ? `, ${city.state}` : ' '}
 										<span> ({city.country})</span>
 									</a>
