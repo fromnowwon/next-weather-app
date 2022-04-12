@@ -34,7 +34,7 @@
 next-weather-app
 ├── pages (라우팅 기능 담당)
 │   ├── _app.tsx (Application Container. 글로벌 CSS & 공통 레이아웃 등을 적용하는 곳)
-│   ├── _document.tsx (SPA에서 시작점이 되는 index.html <head>태그 내용 등을 작성)
+│   ├── _document.tsx (<head> 태그 안에 작성될 CDN이나 공통으로 추가될 meta 태그를 작성)
 │   ├── index.tsx (Root Page. /로 시작되는 경로를 말한다.)
 │   └── location (다이나믹 라우터)
 │       └── [city].tsx
@@ -49,10 +49,5 @@ next-weather-app
 │   └── WeeklyWeather.tsx (주간 날씨)
 ├── styles (정적 자원 중 CSS 파일을 별도 보관)
 │   └── main.scss
-├── README.md
-├── next-env.d.ts
-├── next.config.js
-├── package-lock.json
-├── package.json
-└── tsconfig.json
+└── package.json
 ```
