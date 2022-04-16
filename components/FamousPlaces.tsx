@@ -51,7 +51,6 @@ export default function FamousPlaces() {
 											alt={`${place.name} Image`} 
 											layout="fill"
 											objectFit="cover"
-											priority
 										/>
 									</div>
 									<span>{place.name}</span>
