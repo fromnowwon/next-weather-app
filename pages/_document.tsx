@@ -16,10 +16,10 @@ export default function Document() {
 					href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap"
 					rel="stylesheet"
 				></link>
-				<link rel="preload" href='../public/images/seoul.jpg' as="image" />
-				<link rel="preload" href='../public/images/london.jpg' as="image" />
+				<link rel="preload" href='/images/seoul.jpg' as="image" />
+				{/* <link rel="preload" href='../public/images/london.jpg' as="image" />
 				<link rel="preload" href='../public/images/paris.jpg' as="image" />
-				<link rel="preload" href='../public/images/new-york.jpg' as="image" />
+				<link rel="preload" href='../public/images/new-york.jpg' as="image" /> */}
 			</Head>
 			<body>
 				<Main />
