@@ -49,5 +49,8 @@ next-weather-app
 │   └── WeeklyWeather.tsx (주간 날씨)
 ├── styles (정적 자원 중 CSS 파일을 별도 보관)
 │   └── main.scss
+├── .eslintrc.json (env, parser, plugins, extends, rules 등을 정의)
+├── next.config.js
+├── tsconfig.json
 └── package.json
 ```

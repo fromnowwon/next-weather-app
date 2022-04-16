@@ -5,7 +5,6 @@ import Link from 'next/link';
 import SeoulImage from '../public/images/seoul.jpg';
 import LondonImage from '../public/images/london.jpg';
 import ParisImage from '../public/images/paris.jpg';
-import TokyoImage from '../public/images/tokyo.jpg';
 import NewYorkImage from '../public/images/new-york.jpg';
 
 const places = [
@@ -24,11 +23,11 @@ const places = [
 		image: ParisImage,
 		url: "/location/paris",
 	},
-	{
-		name: "도쿄",
-		image: TokyoImage,
-		url: "/location/tokyo",
-	},
+	// {
+	// 	name: "도쿄",
+	// 	image: TokyoImage,
+	// 	url: "/location/tokyo",
+	// },
 	{
 		name: "뉴욕",
 		image: NewYorkImage,
@@ -51,7 +50,8 @@ export default function FamousPlaces() {
 											src={place.image} 
 											alt={`${place.name} Image`} 
 											layout="fill"
-											objectFit='cover'
+											objectFit="cover"
+											priority
 										/>
 									</div>
 									<span>{place.name}</span>

@@ -1,8 +1,7 @@
-import React from 'react'
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState, useMemo } from 'react'
 import Link from 'next/link';
 import Router from 'next/router';
+import { debounce } from 'lodash';
 
 export interface Icities {
 	id: number
@@ -26,6 +25,8 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 	useEffect(() => {
 		// 검색창 리셋
 		const clearQuery = () => setQuery("");
+
+		// mount
 		Router.events.on("routeChangeComplete", clearQuery);
 
 		// unmount
@@ -36,26 +37,33 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value } = e.target;
-		setQuery(value);
-
-		if (value.length > 1) {
-			fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${process.env.NEXT_PUBLIC_API_KEY}`)
-			.then(res => res.json())
-			.then(data => {
-				if(!data.errors) {
-					setCities(data);
-				} else {
-					setCities([]);
-				}
-			})
-		}
+		console.log(value)
+		debouncedSearch(value);
 	}
+
+	// debounce 최적화
+	const debouncedSearch = useMemo(() => debounce((query) => {
+		// 모든 호출이 아닌 
+		// 지정 간격 마다 리턴 값 받아서 state에 담고
+		setQuery(query);
+		// console.log(query);
+
+		// 그 값으로 API 데이터 가져오기
+		fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${process.env.NEXT_PUBLIC_API_KEY}`)
+		.then(res => res.json())
+		.then(data => {
+			if(!data.errors) {
+				setCities(data);
+			} else {
+				setCities([]);
+			}
+		})
+	}, 300), [ query ]);
 
 	return (
 		<div className="search">
 			<input 
 				type="text" 
-				value={query} 
 				onChange={onChange} 
 				placeholder={placeholder ? placeholder : ""}
 			/>
@@ -65,8 +73,8 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 					{
 						cities.length > 0 
 							? (
-								cities.map((city) => (
-									<li key={city.slug}>
+								cities.map((city, idx) => (
+									<li key={idx}>
 										<Link href={`/location/${city.name.toLowerCase()}`}>
 											<a>
 												{
