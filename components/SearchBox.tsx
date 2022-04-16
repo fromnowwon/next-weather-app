@@ -37,7 +37,6 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value } = e.target;
-		console.log(value)
 		debouncedSearch(value);
 	}
 
@@ -46,7 +45,6 @@ const SearchBox = ({ placeholder }: { placeholder: string }) => {
 		// 모든 호출이 아닌 
 		// 지정 간격 마다 리턴 값 받아서 state에 담고
 		setQuery(query);
-		// console.log(query);
 
 		// 그 값으로 API 데이터 가져오기
 		fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${process.env.NEXT_PUBLIC_API_KEY}`)

@@ -17,6 +17,12 @@
 
 <br/>
 
+## 최적화
+- Lodash 라이브러리
+	- debounce 메서드로 검색 폼 최적화
+
+<br />
+
 ## Reference
 📎 [Creating a Weather Forecast Web App with Next.js - Next.js Beginner Project](https://youtu.be/6UlpfXQWysg)
 
